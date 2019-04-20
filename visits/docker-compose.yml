@@ -1,8 +1,8 @@
 version: '3'
 services:
-  redis-server:
+  redis:
     image: 'redis'
-  node-app:
+  web:
     restart: on-failure
     build:
       context: .
@@ -12,3 +12,12 @@ services:
     volumes:
       - /usr/app/node_modules
       - .:/usr/app
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /usr/app/node_modules
+      - .:/usr/app
+    command: ["npm", "run", "tests"]
+
