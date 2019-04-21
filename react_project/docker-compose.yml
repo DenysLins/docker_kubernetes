@@ -5,8 +5,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    ports:
-      - "8081:8081"
     volumes:
       - /usr/app/node_modules
       - ./frontend:/usr/app
@@ -18,4 +16,3 @@ services:
       - /usr/app/node_modules
       - ./frontend:/usr/app
     command: ["npm", "run", "test"]
-
