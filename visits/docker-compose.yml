@@ -1,23 +1,13 @@
-version: '3'
+version: "3"
 services:
   redis:
-    image: 'redis'
+    image: "redis"
   web:
+    depends_on:
+      - redis
     restart: on-failure
     build:
       context: .
       dockerfile: Dockerfile.dev
     ports:
-      - "8081:8081"
-    volumes:
-      - /usr/app/node_modules
-      - .:/usr/app
-  tests:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      - /usr/app/node_modules
-      - .:/usr/app
-    command: ["npm", "run", "tests"]
-
+      - "8080:8080"

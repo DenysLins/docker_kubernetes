@@ -38,4 +38,16 @@ To create and start a container from the previously created simpleweb image, run
 docker run -p 8080:8080 denyslins/simpleweb
 ```
 
-You can access http://localhost:8080 and see the `Hello Docker User! How are you doing today?` page.
+You can access <http://localhost:8080> and see the `Hello Docker User! How are you doing today?` page.
+
+# 3 - visits folder
+
+This project contains a simple web application using node.js, express.js, and redis running inside containers. The nodejs container connects with the redis container.
+
+To build and start the containers, run the following command:
+
+```sh
+docker-compose up
+```
+
+You can access <http://localhost:8080> and see `the Number of visits is x` page.
