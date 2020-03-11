@@ -1,10 +1,10 @@
 # DOCKER & KUBERNETES - UDEMY
 
-This repository contains all my answer code from https://www.udemy.com/docker-and-kubernetes-the-complete-guide course
+This repository contains all my answer code from <https://www.udemy.com/docker-and-kubernetes-the-complete-guide> course
 
 There are a lot of exercises in this course, and they are listed in order of presentation in the course.
 
-# 1 - redis-image folder
+## 1 - redis-image folder
 
 This project shows how to build a single docker image from a docker file.
 
@@ -33,7 +33,7 @@ To remove the image created, run the commands:
 docker image rm denyslins/redis-server:latest
 ```
 
-# 2 - simpleweb folder
+## 2 - simpleweb folder
 
 This project contains a simple web application using node.js and express.js running inside a container.
 This version is not recommended because we need to constantly rebuild the image to reflect changes in code.
@@ -51,7 +51,7 @@ To create and start a container from the previously created simpleweb image, run
 docker run -p 8080:8080 --name simpleweb denyslins/simpleweb
 ```
 
-You can access <http://localhost:8080> and see the `Hello Docker User! How are you doing today?` page.
+You can access <http://localhost:8080> and see the *_'Hello Docker User! How are you doing today?'_* page.
 
 To stop and remove the container, run the commands:
 
@@ -66,7 +66,7 @@ To remove the image created, run the commands:
 docker image rm denyslins/simpleweb:latest
 ```
 
-# 3 - visits folder
+## 3 - visits folder
 
 This project contains a simple web application using node.js, express.js, and redis running inside containers. The nodejs container connects with the redis container.
 
@@ -76,7 +76,7 @@ To build and start the containers, run the following command:
 docker-compose up -d
 ```
 
-You can access <http://localhost:8080> and see `the Number of visits is x` page.
+You can access <http://localhost:8080> and see the *_'Number of visits is x'_* page.
 
 To stop all containers, run:
 
