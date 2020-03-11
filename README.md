@@ -11,11 +11,11 @@ This project shows how to build a single docker image from a docker file.
 To create a redis-server docker image, run the following command:
 
 ```sh
-docker build -t redis-server .
+docker build -t denyslins/redis-server:latest .
 ```
 
-And to create and start a container from a previously created redis-server image, run the command:
+And to create and start a container from the previously created redis-server image, run the command:
 
 ```sh
-docker run -it redis-server
+docker run -it denyslins/redis-server:latest
 ```
