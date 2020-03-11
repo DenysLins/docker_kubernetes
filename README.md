@@ -17,7 +17,20 @@ docker build -t denyslins/redis-server:latest .
 To create and start a container from the previously created redis-server image, run the command:
 
 ```sh
-docker run -it denyslins/redis-server:latest
+docker run -it --name redis-server denyslins/redis-server:latest
+```
+
+To stop and remove the container, run the commands:
+
+```sh
+docker stop redis-server
+docker rm redis-server
+```
+
+To remove the image created, run the commands:
+
+```sh
+docker image rm denyslins/redis-server:latest
 ```
 
 # 2 - simpleweb folder
@@ -35,10 +48,23 @@ docker build -t denyslins/simpleweb:latest .
 To create and start a container from the previously created simpleweb image, run the command:
 
 ```sh
-docker run -p 8080:8080 denyslins/simpleweb
+docker run -p 8080:8080 --name simpleweb denyslins/simpleweb
 ```
 
 You can access <http://localhost:8080> and see the `Hello Docker User! How are you doing today?` page.
+
+To stop and remove the container, run the commands:
+
+```sh
+docker stop simpleweb
+docker rm simpleweb
+```
+
+To remove the image created, run the commands:
+
+```sh
+docker image rm denyslins/simpleweb:latest
+```
 
 # 3 - visits folder
 
@@ -47,7 +73,13 @@ This project contains a simple web application using node.js, express.js, and re
 To build and start the containers, run the following command:
 
 ```sh
-docker-compose up
+docker-compose up -d
 ```
 
 You can access <http://localhost:8080> and see `the Number of visits is x` page.
+
+To stop all containers, run:
+
+```sh
+docker-compose down
+```
