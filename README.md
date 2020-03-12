@@ -83,3 +83,21 @@ To stop all containers, run:
 ```sh
 docker-compose down
 ```
+
+## 4 - react_project folder
+
+This project contains a simple react web application running inside a container. 
+The container is configured to run in dev mode, so it reflects changes made in code without the need to rebuild the image and rerun the container.
+To build and start the container, run the following command:
+
+```sh
+docker-compose up -d
+```
+
+You can access <http://localhost:3000> and see the initial react default page.
+
+To stop the container, run:
+
+```sh
+docker-compose down
+```
