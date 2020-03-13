@@ -10,7 +10,7 @@ script:
   - docker run -e CI=true denyslins/react_project npm run test -- --coverage
 
 deploy:
-  edge: true
+  # edge: true
   provider: elasticbeanstalk
   region: "us-east-1"
   app: "udemy-react-project"
