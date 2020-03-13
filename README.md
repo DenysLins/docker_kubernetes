@@ -87,8 +87,9 @@ docker-compose down
 ## 4 - react_project folder
 
 This project contains a simple react web application running inside containers.
-Both containers are configured to reflect changes made in code without the need to rebuild the image and rerun the container.
-One container runs web-server and the other runs the tests.
+Two containers (dev and test) are configured to reflect changes made in code without the need to rebuild the image and rerun the container.
+One container runs the web-server and the other runs the tests.
+The third one container (prod) serves the web application after a build made with 'npm run build'. Note that changes in code are *not* reflected in prod container. So, you will need to rebuild the image and rerun this container to reflect changes made in code.
 
 To build and start the containers, run the following command:
 
@@ -96,7 +97,9 @@ To build and start the containers, run the following command:
 docker-compose up -d
 ```
 
-You can access <http://localhost:3000> and see the initial react default page.
+You can access <http://localhost:3000> and see the initial react default page served by dev container.
+
+You can access <http://localhost> and see the initial react default page served by prod container, in default 80 port.
 
 To stop and remove the containers, run:
 
