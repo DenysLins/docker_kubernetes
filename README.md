@@ -86,9 +86,11 @@ docker-compose down
 
 ## 4 - react_project folder
 
-This project contains a simple react web application running inside a container. 
-The container is configured to run in dev mode, so it reflects changes made in code without the need to rebuild the image and rerun the container.
-To build and start the container, run the following command:
+This project contains a simple react web application running inside containers.
+Both containers are configured to reflect changes made in code without the need to rebuild the image and rerun the container.
+One container runs web-server and the other runs the tests.
+
+To build and start the containers, run the following command:
 
 ```sh
 docker-compose up -d
@@ -96,7 +98,7 @@ docker-compose up -d
 
 You can access <http://localhost:3000> and see the initial react default page.
 
-To stop the container, run:
+To stop and remove the containers, run:
 
 ```sh
 docker-compose down
