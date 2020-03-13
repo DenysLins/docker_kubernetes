@@ -8,3 +8,17 @@ before_install:
 
 script:
   - docker run -e CI=true denyslins/react_project npm run test -- --coverage
+
+deploy:
+  # edge: true
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "udemy-react-project"
+  env: "UdemyReactProject-env-1"
+  bucket_name: "elasticbeanstalk-us-east-1-364239297740"
+  bucket_path: "udemy-react-project"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
