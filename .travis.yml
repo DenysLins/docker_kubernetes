@@ -9,6 +9,8 @@ before_install:
 script:
   - docker run -e CI=true denyslins/react_project npm run test -- --coverage
 
+before_deploy: "cp react_project/frontend/Dockerfile ."
+
 deploy:
   # edge: true
   provider: elasticbeanstalk
