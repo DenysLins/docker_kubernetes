@@ -108,3 +108,27 @@ docker-compose down
 ```
 
 This project uses Travis for CI/CD
+
+## 5 - complex folder
+
+This project contains a react web application to calc Fibonacci numbers running inside multiples containers.
+
+- The client container contains the frontend react application.
+- The server container contains the nodejs backend application.
+- The worker container calculates the Fibonacci number and stores it on redis.
+- The redis container caches the Fibonacci calculated numbers.
+- The postgres container persists the Fibonacci calculated index.
+
+To build and start the containers in development mode, run the following command:
+
+```sh
+docker-compose up -d
+```
+
+You can access <http://localhost:3000> and see the page served by the client container.
+
+To stop and remove the containers, run:
+
+```sh
+docker-compose down
+```
