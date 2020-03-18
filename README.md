@@ -51,7 +51,7 @@ To create and start a container from the previously created simpleweb image, run
 docker run -p 8080:8080 --name simpleweb denyslins/simpleweb
 ```
 
-You can access <http://localhost:8080> and see the *_'Hello Docker User! How are you doing today?'_* page.
+You can access <http://localhost:8080> and see the _*'Hello Docker User! How are you doing today?'*_ page.
 
 To stop and remove the container, run the commands:
 
@@ -76,7 +76,7 @@ To build and start the containers, run the following command:
 docker-compose up -d
 ```
 
-You can access <http://localhost:8080> and see the *_'Number of visits is x'_* page.
+You can access <http://localhost:8080> and see the _*'Number of visits is x'*_ page.
 
 To stop all containers, run:
 
@@ -89,7 +89,7 @@ docker-compose down
 This project contains a simple react web application running inside containers.
 Two containers (dev and test) are configured to reflect changes made in code without the need to rebuild the image and rerun the container.
 One container runs the web-server and the other runs the tests.
-The third one container (prod) serves the web application after a build made with 'npm run build'. Note that changes in code are *not* reflected in prod container. So, you will need to rebuild the image and rerun this container to reflect changes made in code.
+The third one container (prod) serves the web application after a build made with 'npm run build'. Note that changes in code are _not_ reflected in prod container. So, you will need to rebuild the image and rerun this container to reflect changes made in code.
 
 To build and start the containers, run the following command:
 
@@ -100,6 +100,32 @@ docker-compose up -d
 You can access <http://localhost:3000> and see the initial react default page served by dev container.
 
 You can access <http://localhost> and see the initial react default page served by prod container, in default 80 port.
+
+To stop and remove the containers, run:
+
+```sh
+docker-compose down
+```
+
+This project uses Travis for CI/CD
+
+## 5 - complex folder
+
+This project contains a react web application to calc Fibonacci numbers running inside multiples containers.
+
+- The client container contains the frontend react application.
+- The api container contains the nodejs backend application.
+- The worker container calculates the Fibonacci number and stores it on redis.
+- The redis container caches the Fibonacci calculated numbers.
+- The postgres container persists the Fibonacci calculated index.
+
+To build and start the containers in development mode, run the following command:
+
+```sh
+docker-compose up -d
+```
+
+You can access <http://localhost:3000> and see the page served by the client container.
 
 To stop and remove the containers, run:
 
