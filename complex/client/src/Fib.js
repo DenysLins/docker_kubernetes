@@ -32,7 +32,7 @@ class Fib extends Component {
   }
 
   renderSeenIndexes() {
-    return this.state.seenIndexes.map(({ number }) => number).join(', ')
+    return this.state.seenIndexes.map(({ number }) => number).sort((a, b) => a - b).join(', ')
   }
 
   renderValues() {
