@@ -114,7 +114,7 @@ This project uses Travis for CI/CD
 This project contains a react web application to calc Fibonacci numbers running inside multiples containers.
 
 - The client container contains the frontend react application.
-- The server container contains the nodejs backend application.
+- The api container contains the nodejs backend application.
 - The worker container calculates the Fibonacci number and stores it on redis.
 - The redis container caches the Fibonacci calculated numbers.
 - The postgres container persists the Fibonacci calculated index.

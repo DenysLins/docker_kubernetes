@@ -2,7 +2,7 @@ version: "3"
 services:
   client:
     depends_on:
-      - server
+      - api
       - worker
       - redis
       - postgres
@@ -12,7 +12,7 @@ services:
     volumes:
       - /app/node_modules
       - ./client:/app
-  server:
+  api:
     depends_on:
       - redis
       - postgres
@@ -49,3 +49,12 @@ services:
     image: "postgres:latest"
     environment:
       - POSTGRES_PASSWORD=postgres_password
+  nginx:
+    restart: always
+    depends_on:
+      - client
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.dev
+    ports:
+      - 8080:80
