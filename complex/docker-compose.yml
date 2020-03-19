@@ -2,8 +2,6 @@ version: "3"
 services:
   client:
     depends_on:
-      - api
-      - worker
       - redis
       - postgres
     build:
@@ -53,6 +51,7 @@ services:
     restart: always
     depends_on:
       - client
+      - api
     build:
       context: ./nginx
       dockerfile: Dockerfile.dev
