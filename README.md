@@ -113,6 +113,7 @@ This project uses Travis for CI/CD
 
 This project contains a react web application to calc Fibonacci numbers running inside multiples containers.
 
+- The nginx container contains the proxy to redirects requests between the client and api containers.
 - The client container contains the frontend react application.
 - The api container contains the nodejs backend application.
 - The worker container calculates the Fibonacci number and stores it on redis.
@@ -125,7 +126,7 @@ To build and start the containers in development mode, run the following command
 docker-compose up -d
 ```
 
-You can access <http://localhost:3000> and see the page served by the client container.
+You can access <http://localhost:8080> and see the page served by the nginx container.
 
 To stop and remove the containers, run:
 
