@@ -5,8 +5,9 @@ metadata:
   labels:
     component: web
 spec:
-  container:
+  containers:
     - name: client
-      image: denyslins/udemy-react-multi-client
+      image: denyslins/udemy-react-multi-client:latest
       ports:
         - containerPort: 3000
+      imagePullPolicy: Always
