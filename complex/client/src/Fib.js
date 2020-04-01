@@ -7,19 +7,30 @@ class Fib extends Component {
     values: {},
     index: ''
   }
-  componentDidMount() {
-    this.fetchValues();
-    this.fetchIndexes();
+
+  componentDidMount () {
+    this.fetchValues()
+    this.fetchIndexes()
   }
 
-  async fetchValues() {
-    const values = await axios.get('/api/values/current')
-    this.setState({ values: values.data })
+  async fetchValues () {
+    try {
+      const response = await axios.get('/api/values/current')
+      this.setState({ values: response.data })
+    } catch (error) {
+      this.setState({ values: {} })
+      console.log(error)
+    }
   }
 
-  async fetchIndexes() {
-    const seenIndexes = await axios.get('/api/values/all')
-    this.setState({ seenIndexes: seenIndexes.data })
+  async fetchIndexes () {
+    try {
+      const response = await axios.get('/api/values/all')
+      this.setState({ seenIndexes: response.data })
+    } catch (error) {
+      this.setState({ seenIndexes: [] })
+      console.log(error)
+    }
   }
 
   handleSubmit = async (event) => {
@@ -31,13 +42,13 @@ class Fib extends Component {
     this.setState({ index: '' })
   }
 
-  renderSeenIndexes() {
+  renderSeenIndexes () {
     return this.state.seenIndexes.map(({ number }) => number).sort((a, b) => a - b).join(', ')
   }
 
-  renderValues() {
+  renderValues () {
     const entries = []
-    for (let key in this.state.values) {
+    for (const key in this.state.values) {
       entries.push(
         <div key={key}>
           For index {key} I calculated {this.state.values[key]}
@@ -47,7 +58,7 @@ class Fib extends Component {
     return entries
   }
 
-  render() {
+  render () {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
